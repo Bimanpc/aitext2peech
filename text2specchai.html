@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text-to-Speech App</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 20px; text-align: center; }
+        textarea { width: 80%; height: 150px; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; background: #4CAF50; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>AI Text-to-Speech App</h1>
+    <textarea id="text" placeholder="Enter your text here..."></textarea>
+    <br>
+    <button onclick="speak()">Speak</button>
+
+    <script>
+        async function getAIResponse(text) {
+            // Simulate an AI response (replace with actual AI API call)
+            return new Promise(resolve => {
+                setTimeout(() => resolve(`AI says: ${text}`), 1000);
+            });
+        }
+
+        async function speak() {
+            const text = document.getElementById('text').value;
+            const aiResponse = await getAIResponse(text);
+            const utterance = new SpeechSynthesisUtterance(aiResponse);
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>
